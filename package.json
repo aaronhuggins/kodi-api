@@ -1,0 +1,30 @@
+{
+  "name": "kodi-jsonrpc",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dts-dom": "^3.6.0",
+    "jayson": "^3.4.4",
+    "jsonschema": "^1.4.0",
+    "rpc-websocket-client": "^1.1.4",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.19",
+    "@types/ws": "^7.4.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "prettier-standard": "^16.3.0",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^9.1.1",
+    "typescript": "^3.9.7"
+  }
+}
