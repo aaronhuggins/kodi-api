@@ -48,7 +48,9 @@ export type KodiClientOptions = KodiHttpClientOptions | KodiHttpsClientOptions |
 
 export interface KodiMethodNamespace {
   [method: string]: (...args: any[]) => Promise<any>
+  /** Method to list methods for this namespace. */
   listMethods: () => Promise<string[]>
+  /** Method to list methods for this namespace. */
   ListMethods: () => Promise<string[]>
 }
 

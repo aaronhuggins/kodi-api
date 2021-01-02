@@ -1,6 +1,7 @@
 import { Validator } from 'jsonschema'
 import type { JsonRpcResponse, JsonSchema, MethodDescription, NotificationDescription, ServiceDescription } from './Types'
 
+/** Wrapper class for Kodi's `JSONRPC.Introspect` metadata response. */
 export class KodiIntrospect implements JsonRpcResponse {
   constructor (introspect: KodiIntrospect) {
     this.id = introspect.id
@@ -34,6 +35,7 @@ export class KodiIntrospect implements JsonRpcResponse {
     return this.result.types[typeName]
   }
 
+  /** Method to validate an input by it's accompanying schema. */
   validateSchema? (input: any, schema: JsonSchema, throwError?: boolean): boolean {
     const result = this.validator.validate(input, schema)
 

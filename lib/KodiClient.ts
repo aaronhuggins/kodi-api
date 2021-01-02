@@ -10,6 +10,7 @@ import type {
 } from './Types'
 import { WebSocketClient } from './WebSocketClient'
 
+/** Class for dynamically calling the Kodi JSON-RPC api, regardless of api version. */
 export class KodiClient {
   constructor (options: KodiClientOptions) {
     this.throwValidationError = typeof options.throwValidationError === 'undefined' ? false : options.throwValidationError
@@ -134,23 +135,28 @@ export class KodiClient {
     return this.introspectionCache.listMethods(group)
   }
 
+  /** Construct an HTTP instance with Kodi defaults. */
   static http (): KodiClient {
     return new KodiClient({ clientType: 'http' })
   }
 
+  /** Construct an HTTPS instance with Kodi defaults. __NOTE:__ _Kodi does not natively or officially support HTTPS; some users have unofficially found a way, though._ */
   static https (): KodiClient {
     return new KodiClient({ clientType: 'https' })
   }
 
+  /** Construct a TCP instance with Kodi defaults. */
   static tcp (): KodiClient {
     return new KodiClient({ clientType: 'tcp' })
   }
 
+  /** Construct a WebSocket instance with Kodi defaults. */
   static ws (): KodiClient {
     return new KodiClient({ clientType: 'ws' })
   }
 }
 
+/** @hidden */
 const KodiProxyHandler: ProxyHandler<KodiClient> = {
   get (target, nameSpace, r) {
     const numeric = /^\d+$/gu

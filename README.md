@@ -1,4 +1,4 @@
-# Kodi JSON-RPC
+# Kodi API
 
 A complete implementation of Kodi JSON-RPC calls in an easy-to-use Javascript/TypeScript client.
 

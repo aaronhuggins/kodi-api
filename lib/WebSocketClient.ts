@@ -8,6 +8,7 @@ export interface WebSocketClientOptions {
   closeOnRequest?: boolean
 }
 
+/** Custom class for web socket interactions with JSON-RPC. */
 export class WebSocketClient {
   constructor (options: WebSocketClientOptions = {}) {
     const config: WebSocketClientOptions = {
