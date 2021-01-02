@@ -18,7 +18,12 @@
     "prepack": "npx tsc",
     "docs": "npx typedoc"
   },
-  "author": "",
+  "author": "Aaron Huggins <aaron@nuclearfamily.llc>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aaronhuggins/kodi-api.git"
+  },
+  "homepage": "https://aaronhuggins.github.io/kodi-api/",
   "license": "ISC",
   "dependencies": {
     "jayson": "^3.4.4",
