@@ -1,10 +1,17 @@
 {
   "name": "kodi-api",
   "version": "0.1.0",
-  "description": "",
+  "description": "A complete implementation of Kodi JSON-RPC calls in an easy-to-use Javascript/TypeScript client.",
   "main": "dist/index.js",
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "kodi",
+    "xbmc",
+    "api",
+    "kodi-controller",
+    "JSONRPC"
   ],
   "scripts": {
     "test": "nyc mocha",
