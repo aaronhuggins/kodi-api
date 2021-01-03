@@ -43,3 +43,7 @@ This makes it possible to use the most up-to-date API documentation available fr
 # Future
 
 Eventually, the plan is to generate TypeScript definitions from Kodi for the latest two major releases and include them in `./lib/api/<version>`. The generator will also be included in the library so that types can be generated on-the-fly for use in other projects.
+
+# Why
+
+Kodi's support today for [syncing and sharing](https://kodi.wiki/view/Syncing_and_sharing) is fairly limited. This module is one leg of a strategy for a server sync based on CouchDB and the Kodi API. However, this module is fully stand-alone and only requires a running instance of Kodi to communicate with.
