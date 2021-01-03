@@ -20,6 +20,7 @@ import { KodiClient } from 'kodi-api'
 const { KodiClient } = require('kodi-api')
 
 async function main () {
+  // Expects localhost and port 9090.
   const client = KodiClient.tcp()
   const result = client.JSONRPC.Ping()
 
