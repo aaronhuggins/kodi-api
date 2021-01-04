@@ -65,7 +65,7 @@
 				<a href="#installation-and-usage" id="installation-and-usage" style="color: inherit; text-decoration: none;">
 					<h2>Installation and usage</h2>
 				</a>
-				<p>Availabel via npm:</p>
+				<p>Available via <a href="https://www.npmjs.com/package/kodi-api"><code>npm</code></a>:</p>
 				<pre><code class="language-shell"><span style="color: #000000">npm install --save kodi-api</span>
 </code></pre>
 				<p>Then import or require:</p>
@@ -87,12 +87,12 @@
 					<h2>Documentation</h2>
 				</a>
 				<p>Documentation for the client is available in <a href="https://aaronhuggins.github.io/kodi-api/"><code>./docs</code></a>.</p>
-				<p>Documentation for the Kodi API is available in their <a href="https://kodi.wiki/view/JSON-RPC_API/v10">wiki</a></p>
+				<p>Documentation for the Kodi API is available in their <a href="https://kodi.wiki/view/JSON-RPC_API/v10">wiki</a>.</p>
 				<a href="#how-it-works" id="how-it-works" style="color: inherit; text-decoration: none;">
 					<h2>How it works</h2>
 				</a>
-				<p>First, the library instantiates a connection over the desired type, such as <code>tcp</code>. Then, it dynamically caches the output from <code>JSONRPC.Introspect</code>. This metadata is then used to make and validate calls to Kodi&#39;s JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to conform to the metadata from <code>JSONRPC.Introspect</code>.</p>
-				<p>This makes it possible to use the most up-to-date API documentation available from Kodi&#39;s website, or to output the documentation by executing <code>JSONRPC.Introspect</code> yourself.</p>
+				<p>First, the library makes a connection for the desired type, such as <code>tcp</code>. Then it dynamically caches the output from <code>JSONRPC.Introspect</code>. This metadata is then used to make and validate calls to Kodi&#39;s JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to conform to the metadata from <code>JSONRPC.Introspect</code>.</p>
+				<p>This makes it possible to use the most up-to-date API documentation available from Kodi&#39;s website, or to output the documentation by executing <code>JSONRPC.Introspect</code> yourself. Kodi themselves <a href="https://kodi.wiki/view/JSON-RPC_API#Documentation">recommend</a> the self-documenting functionality over their own wiki.</p>
 				<a href="#future" id="future" style="color: inherit; text-decoration: none;">
 					<h2>Future</h2>
 				</a>
