@@ -1,6 +1,6 @@
 {
   "name": "kodi-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A complete implementation of Kodi JSON-RPC calls in an easy-to-use Javascript/TypeScript client.",
   "main": "dist/index.js",
   "files": [
