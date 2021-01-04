@@ -13,10 +13,6 @@ describe('KodiClient', () => {
 
     strictEqual(res1 instanceof KodiIntrospect, true)
 
-    const res2 = await client.getMethod('JSONRPC.Permission')
-
-    strictEqual(typeof res2, 'function')
-
     const res3 = client.throwValidationError
 
     strictEqual(typeof res3, 'boolean')
@@ -83,10 +79,9 @@ describe('KodiClient', () => {
 
     await client.connect()
 
-    const res = await client.Application.GetProperties(['volume', 'language'])
+    const res = await client.Application.ListMethods()
 
-    strictEqual(typeof res.language, 'string')
-    strictEqual(typeof res.volume, 'number')
+    strictEqual(Array.isArray(res), true)
 
     await client.disconnect()
   })

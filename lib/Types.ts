@@ -17,11 +17,17 @@ export interface JsonSchema extends Schema {
 // Client interfaces and types.
 export type JaysonClient = HttpClient | HttpsClient | TcpClient | WebSocketClient
 export type JaysonClientOptions = HttpClientOptions | HttpsClientOptions | TcpClientOptions | WebSocketClientOptions
+export type ClientType = 'http' | 'https' | 'tcp' | 'ws'
+export type ParameterMode = 'arguments' | 'object'
+export type KodiObjectMethod = (obj?: Record<string, any>) => Promise<any>
+export type KodiArgumentMethod = (...args: any[]) => Promise<any>
+export type KodiMethod = KodiArgumentMethod | KodiObjectMethod
 
 interface KodiBaseClientOptions {
-  clientType: 'http' | 'https' | 'tcp' | 'ws'
+  clientType: ClientType
   clientOptions?: JaysonClientOptions
   throwValidationError?: boolean
+  parameterMode?: ParameterMode
 }
 
 interface KodiHttpClientOptions extends KodiBaseClientOptions {
@@ -45,14 +51,6 @@ interface KodiWsClientOptions extends KodiBaseClientOptions {
 }
 
 export type KodiClientOptions = KodiHttpClientOptions | KodiHttpsClientOptions | KodiTcpClientOptions | KodiWsClientOptions
-
-export interface KodiMethodNamespace {
-  [method: string]: (...args: any[]) => Promise<any>
-  /** Method to list methods for this namespace. */
-  listMethods: () => Promise<string[]>
-  /** Method to list methods for this namespace. */
-  ListMethods: () => Promise<string[]>
-}
 
 // Kodi JSON-RPC interfaces.
 export interface JsonRpcResponse {

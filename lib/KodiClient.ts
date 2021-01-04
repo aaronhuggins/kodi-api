@@ -1,19 +1,24 @@
 import { Client } from 'jayson/promise'
-import { validate } from 'jsonschema'
 import { v4 as uuidv4 } from 'uuid'
 import { KodiIntrospect } from './KodiIntrospect'
+import { KodiMethodNamespace } from './KodiMethodNamespace'
 import type {
+  ClientType,
   JaysonClient,
   JsonRpcResponse,
   KodiClientOptions,
-  KodiMethodNamespace
 } from './Types'
 import { WebSocketClient } from './WebSocketClient'
+
+const numeric = /^\d+$/gu
 
 /** Class for dynamically calling the Kodi JSON-RPC api, regardless of api version. */
 export class KodiClient {
   constructor (options: KodiClientOptions) {
     this.throwValidationError = typeof options.throwValidationError === 'undefined' ? false : options.throwValidationError
+    this.clientType = options.clientType
+    // Initialize as undefined so that key can be looked up, like `key in this`.
+    this.introspectionCache = undefined
 
     switch (options.clientType) {
       case 'http':
@@ -45,6 +50,7 @@ export class KodiClient {
   }
 
   // Internal objects
+  clientType: ClientType
   jsonRpcClient: JaysonClient
   introspectionCache?: KodiIntrospect
   throwValidationError: boolean
@@ -92,39 +98,6 @@ export class KodiClient {
     return this.introspectionCache
   }
 
-  /** Method to return a Kodi JSON-RPC method as a function. */
-  getMethod (method: string, name?: string): (...args: any[]) => Promise<any> {
-    const self = this
-    const methodFunc = async function methodFunc (...args: any[]): Promise<any> {
-      await self.getIntrospectionCache()
-
-      const methodDesc = self.introspectionCache.describeMethod(method)
-      const params = {}
-
-      // Iterate over arguments, validating and constructing parameters
-      for (let i = 0; i < args.length; i += 1) {
-        const paramDesc = methodDesc.params[i]
-
-        self.introspectionCache.validateSchema(args[i], paramDesc, self.throwValidationError)
-
-        params[paramDesc.name] = args[i]
-      }
-
-      const response: JsonRpcResponse = await self.jsonRpcClient.request(method, params, uuidv4())
-
-      self.introspectionCache.validateSchema(response, methodDesc.returns, self.throwValidationError)
-
-      return response.result
-    }
-
-    if (typeof name === 'string') {
-      Object.defineProperty(methodFunc, 'name', { value: name })
-      Object.defineProperty(methodFunc.constructor, 'name', { value: name })
-    }
-
-    return methodFunc
-  }
-
   /** Method to list Kodi JSON-RPC methods. */
   async listMethods (): Promise<string[]>
   async listMethods (group: false): Promise<string[]>
@@ -159,49 +132,34 @@ export class KodiClient {
 /** @hidden */
 const KodiProxyHandler: ProxyHandler<KodiClient> = {
   get (target, nameSpace, r) {
-    const numeric = /^\d+$/gu
+    // Short-circuit if namespace already exists on target.
+    if (nameSpace in target) return target[nameSpace]
+    if (typeof nameSpace !== 'string' || (/^\d+$/gu).test(nameSpace as string)) return void 0
 
-    switch (nameSpace) {
-      case 'connect':
-        return target.connect
-      case 'disconnect':
-        return target.disconnect
-      case 'getIntrospectionCache':
-        return target.getIntrospectionCache
-      case 'getMethod':
-        return target.getMethod
-      case 'introspectionCache':
-        return target.introspectionCache
-      case 'jsonRpcClient':
-        return target.jsonRpcClient
-      case 'listMethods':
-        return target.listMethods
-      case 'throwValidationError':
-        return target.throwValidationError
-      default:
-        if (typeof nameSpace !== 'string' || numeric.test(nameSpace as string)) return void 0
+    const listMethods = async function listMethods (): Promise<string[]> {
+      await target.getIntrospectionCache()
 
-        return new Proxy({}, {
-          get (empty, methodName, r) {
-            if (typeof methodName !== 'string' || numeric.test(methodName as string)) return void 0
+      const groups = await target.listMethods(true)
 
-            const listMethodsRx = /^[Ll]istMethods$/gu
-
-            if (listMethodsRx.test(methodName)) {
-              return async function listMethods (): Promise<string[]> {
-                await target.getIntrospectionCache()
-
-                const groups = await target.listMethods(true)
-
-                return groups[nameSpace]
-              }
-            }
-
-            const method = nameSpace + '.' + methodName.slice(0, 1).toUpperCase() + methodName.slice(1, methodName.length)
-
-            return target.getMethod(method, methodName)
-          }
-        })
+      return groups[nameSpace]
     }
+
+    return new Proxy({
+      ListMethods: listMethods,
+      listMethods
+    }, {
+      get (subTarget, methodName, r) {
+        if (methodName in subTarget) return subTarget[methodName]
+        if (typeof methodName !== 'string' || numeric.test(methodName as string)) return void 0
+
+        // Construct a namespace object as a caching mechanism.
+        const newNameSpace = new KodiMethodNamespace(nameSpace, methodName, target)
+        // Store the namespace on the original `this`.
+        target[nameSpace] = newNameSpace
+
+        // Return the requested method from the namespace.
+        return newNameSpace[methodName]
+      }
+    })
   }
 }
