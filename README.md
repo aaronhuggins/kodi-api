@@ -4,7 +4,7 @@ A complete implementation of Kodi JSON-RPC calls in an easy-to-use Javascript/Ty
 
 ## Installation and usage
 
-Availabel via npm:
+Available via [`npm`](https://www.npmjs.com/package/kodi-api):
 
 ```shell
 npm install --save kodi-api
@@ -34,13 +34,13 @@ main()
 
 Documentation for the client is available in [`./docs`](https://aaronhuggins.github.io/kodi-api/).
 
-Documentation for the Kodi API is available in their [wiki](https://kodi.wiki/view/JSON-RPC_API/v10)
+Documentation for the Kodi API is available in their [wiki](https://kodi.wiki/view/JSON-RPC_API/v10).
 
 ## How it works
 
-First, the library instantiates a connection over the desired type, such as `tcp`. Then, it dynamically caches the output from `JSONRPC.Introspect`. This metadata is then used to make and validate calls to Kodi's JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to conform to the metadata from `JSONRPC.Introspect`.
+First, the library makes a connection for the desired type, such as `tcp`. Then it dynamically caches the output from `JSONRPC.Introspect`. This metadata is then used to make and validate calls to Kodi's JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to conform to the metadata from `JSONRPC.Introspect`.
 
-This makes it possible to use the most up-to-date API documentation available from Kodi's website, or to output the documentation by executing `JSONRPC.Introspect` yourself.
+This makes it possible to use the most up-to-date API documentation available from Kodi's website, or to output the documentation by executing `JSONRPC.Introspect` yourself. Kodi themselves [recommend](https://kodi.wiki/view/JSON-RPC_API#Documentation) the self-documenting functionality over their own wiki.
 
 ## Future
 
