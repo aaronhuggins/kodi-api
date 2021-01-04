@@ -76,7 +76,7 @@
 <span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000"> () {</span>
 <span style="color: #000000">  </span><span style="color: #008000">// Expects localhost and port 9090.</span>
 <span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #001080">KodiClient</span><span style="color: #000000">.</span><span style="color: #795E26">tcp</span><span style="color: #000000">()</span>
-<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #0070C1">JSONRPC</span><span style="color: #000000">.</span><span style="color: #795E26">Ping</span><span style="color: #000000">()</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #0070C1">JSONRPC</span><span style="color: #000000">.</span><span style="color: #795E26">Ping</span><span style="color: #000000">()</span>
 
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">result</span><span style="color: #000000">) </span><span style="color: #008000">// Expected output: &#039;pong&#039;</span>
 <span style="color: #000000">}</span>
@@ -86,11 +86,12 @@
 				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
 					<h2>Documentation</h2>
 				</a>
-				<p>Documentation for the client is available in <code>./docs</code>.</p>
+				<p>Documentation for the client is available in <a href="https://aaronhuggins.github.io/kodi-api/"><code>./docs</code></a>.</p>
+				<p>Documentation for the Kodi API is available in their <a href="https://kodi.wiki/view/JSON-RPC_API/v10">wiki</a></p>
 				<a href="#how-it-works" id="how-it-works" style="color: inherit; text-decoration: none;">
 					<h2>How it works</h2>
 				</a>
-				<p>First, the library instantiates a connection over the desired type, such as <code>tcp</code>. Then, it dynamically caches the output from <code>JSONRPC.Introspect</code>. This metadata is then used to make and validate calls to Kodi&#39;s JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to confirm to the metadata from <code>JSONRPC.Introspect</code>.</p>
+				<p>First, the library instantiates a connection over the desired type, such as <code>tcp</code>. Then, it dynamically caches the output from <code>JSONRPC.Introspect</code>. This metadata is then used to make and validate calls to Kodi&#39;s JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to conform to the metadata from <code>JSONRPC.Introspect</code>.</p>
 				<p>This makes it possible to use the most up-to-date API documentation available from Kodi&#39;s website, or to output the documentation by executing <code>JSONRPC.Introspect</code> yourself.</p>
 				<a href="#future" id="future" style="color: inherit; text-decoration: none;">
 					<h2>Future</h2>
@@ -125,9 +126,6 @@
 						<a href="interfaces/jsonschema.html" class="tsd-kind-icon">Json<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/kodimethodnamespace.html" class="tsd-kind-icon">Kodi<wbr>Method<wbr>Namespace</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/methoddescription.html" class="tsd-kind-icon">Method<wbr>Description</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -140,13 +138,28 @@
 						<a href="interfaces/servicedescription.html" class="tsd-kind-icon">Service<wbr>Description</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#clienttype" class="tsd-kind-icon">Client<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#jaysonclient" class="tsd-kind-icon">Jayson<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#jaysonclientoptions" class="tsd-kind-icon">Jayson<wbr>Client<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#kodiargumentmethod" class="tsd-kind-icon">Kodi<wbr>Argument<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#kodiclientoptions" class="tsd-kind-icon">Kodi<wbr>Client<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#kodimethod" class="tsd-kind-icon">Kodi<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#kodiobjectmethod" class="tsd-kind-icon">Kodi<wbr>Object<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#parametermode" class="tsd-kind-icon">Parameter<wbr>Mode</a>
 					</li>
 				</ul>
 			</nav>

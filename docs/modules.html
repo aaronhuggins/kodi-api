@@ -73,7 +73,6 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface"><a href="interfaces/jsonrpcresponse.html" class="tsd-kind-icon">Json<wbr>Rpc<wbr>Response</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/jsonschema.html" class="tsd-kind-icon">Json<wbr>Schema</a></li>
-								<li class="tsd-kind-interface"><a href="interfaces/kodimethodnamespace.html" class="tsd-kind-icon">Kodi<wbr>Method<wbr>Namespace</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/methoddescription.html" class="tsd-kind-icon">Method<wbr>Description</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/notificationdescription.html" class="tsd-kind-icon">Notification<wbr>Description</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/propertydescription.html" class="tsd-kind-icon">Property<wbr>Description</a></li>
@@ -83,9 +82,14 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="modules.html#clienttype" class="tsd-kind-icon">Client<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#jaysonclient" class="tsd-kind-icon">Jayson<wbr>Client</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#jaysonclientoptions" class="tsd-kind-icon">Jayson<wbr>Client<wbr>Options</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#kodiargumentmethod" class="tsd-kind-icon">Kodi<wbr>Argument<wbr>Method</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#kodiclientoptions" class="tsd-kind-icon">Kodi<wbr>Client<wbr>Options</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#kodimethod" class="tsd-kind-icon">Kodi<wbr>Method</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#kodiobjectmethod" class="tsd-kind-icon">Kodi<wbr>Object<wbr>Method</a></li>
+								<li class="tsd-kind-type-alias"><a href="modules.html#parametermode" class="tsd-kind-icon">Parameter<wbr>Mode</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,12 +98,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="clienttype" class="tsd-anchor"></a>
+					<h3>Client<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Client<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;http&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;https&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;tcp&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ws&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L20">lib/Types.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="jaysonclient" class="tsd-anchor"></a>
 					<h3>Jayson<wbr>Client</h3>
 					<div class="tsd-signature tsd-kind-icon">Jayson<wbr>Client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HttpClient</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HttpsClient</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">TcpClient</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">WebSocketClient</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/386d262/lib/Types.ts#L18">lib/Types.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L18">lib/Types.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -109,9 +123,40 @@
 					<div class="tsd-signature tsd-kind-icon">Jayson<wbr>Client<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HttpClientOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HttpsClientOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">TcpClientOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">WebSocketClientOptions</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/386d262/lib/Types.ts#L19">lib/Types.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L19">lib/Types.ts:19</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="kodiargumentmethod" class="tsd-anchor"></a>
+					<h3>Kodi<wbr>Argument<wbr>Method</h3>
+					<div class="tsd-signature tsd-kind-icon">Kodi<wbr>Argument<wbr>Method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L23">lib/Types.ts:23</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="kodiclientoptions" class="tsd-anchor"></a>
@@ -119,7 +164,58 @@
 					<div class="tsd-signature tsd-kind-icon">Kodi<wbr>Client<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">KodiHttpClientOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">KodiHttpsClientOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">KodiTcpClientOptions</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">KodiWsClientOptions</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/386d262/lib/Types.ts#L47">lib/Types.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L53">lib/Types.ts:53</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="kodimethod" class="tsd-anchor"></a>
+					<h3>Kodi<wbr>Method</h3>
+					<div class="tsd-signature tsd-kind-icon">Kodi<wbr>Method<span class="tsd-signature-symbol">:</span> <a href="modules.html#kodiargumentmethod" class="tsd-signature-type" data-tsd-kind="Type alias">KodiArgumentMethod</a><span class="tsd-signature-symbol"> | </span><a href="modules.html#kodiobjectmethod" class="tsd-signature-type" data-tsd-kind="Type alias">KodiObjectMethod</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L24">lib/Types.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="kodiobjectmethod" class="tsd-anchor"></a>
+					<h3>Kodi<wbr>Object<wbr>Method</h3>
+					<div class="tsd-signature tsd-kind-icon">Kodi<wbr>Object<wbr>Method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L22">lib/Types.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> obj: <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="parametermode" class="tsd-anchor"></a>
+					<h3>Parameter<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">Parameter<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;arguments&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;object&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/aaronhuggins/kodi-api/blob/8b595e0/lib/Types.ts#L21">lib/Types.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -148,9 +244,6 @@
 						<a href="interfaces/jsonschema.html" class="tsd-kind-icon">Json<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/kodimethodnamespace.html" class="tsd-kind-icon">Kodi<wbr>Method<wbr>Namespace</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/methoddescription.html" class="tsd-kind-icon">Method<wbr>Description</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -163,13 +256,28 @@
 						<a href="interfaces/servicedescription.html" class="tsd-kind-icon">Service<wbr>Description</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#clienttype" class="tsd-kind-icon">Client<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#jaysonclient" class="tsd-kind-icon">Jayson<wbr>Client</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#jaysonclientoptions" class="tsd-kind-icon">Jayson<wbr>Client<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#kodiargumentmethod" class="tsd-kind-icon">Kodi<wbr>Argument<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#kodiclientoptions" class="tsd-kind-icon">Kodi<wbr>Client<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#kodimethod" class="tsd-kind-icon">Kodi<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#kodiobjectmethod" class="tsd-kind-icon">Kodi<wbr>Object<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#parametermode" class="tsd-kind-icon">Parameter<wbr>Mode</a>
 					</li>
 				</ul>
 			</nav>

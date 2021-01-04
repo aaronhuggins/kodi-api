@@ -22,7 +22,7 @@ const { KodiClient } = require('kodi-api')
 async function main () {
   // Expects localhost and port 9090.
   const client = KodiClient.tcp()
-  const result = client.JSONRPC.Ping()
+  const result = await client.JSONRPC.Ping()
 
   console.log(result) // Expected output: 'pong'
 }
@@ -32,11 +32,13 @@ main()
 
 ## Documentation
 
-Documentation for the client is available in `./docs`.
+Documentation for the client is available in [`./docs`](https://aaronhuggins.github.io/kodi-api/).
+
+Documentation for the Kodi API is available in their [wiki](https://kodi.wiki/view/JSON-RPC_API/v10)
 
 ## How it works
 
-First, the library instantiates a connection over the desired type, such as `tcp`. Then, it dynamically caches the output from `JSONRPC.Introspect`. This metadata is then used to make and validate calls to Kodi's JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to confirm to the metadata from `JSONRPC.Introspect`.
+First, the library instantiates a connection over the desired type, such as `tcp`. Then, it dynamically caches the output from `JSONRPC.Introspect`. This metadata is then used to make and validate calls to Kodi's JSON-RPC api. No functions are predefined on the client class itself; the class self-mutates to conform to the metadata from `JSONRPC.Introspect`.
 
 This makes it possible to use the most up-to-date API documentation available from Kodi's website, or to output the documentation by executing `JSONRPC.Introspect` yourself.
 
